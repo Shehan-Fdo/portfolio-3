@@ -6,30 +6,15 @@ import { useState, useEffect } from "react";
 export default function AboutMe() {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
-  // Auto-open menu on mobile when component loads (only once)
   useEffect(() => {
-    const checkMobile = () => {
-      // Only auto-open if we haven't done so already and it's mobile view
-      if (window.innerWidth < 768 && !hasAutoOpened) {
-        setIsOpen(true);
-        setHasAutoOpened(true);
-      }
-    };
-
-    // Check on initial load with a small delay to ensure proper measurement
-    const timer = setTimeout(checkMobile, 100);
-
-    // Debounced resize handler to prevent excessive calls during scrolling
+    // Removed auto-open logic on refresh
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        // Only respond to actual screen size changes, not scroll-triggered resizes
         const currentWidth = window.innerWidth;
         if (currentWidth >= 768 && isOpen) {
-          // Close mobile menu if switching to desktop view
           setIsOpen(false);
           setIsClosing(false);
         }
@@ -38,25 +23,23 @@ export default function AboutMe() {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
-      clearTimeout(timer);
       clearTimeout(resizeTimer);
       window.removeEventListener('resize', handleResize);
     };
-  }, [hasAutoOpened, isOpen]);
+  }, [isOpen]); // removed dependency on hasAutoOpened
 
   const handleClose = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);
-    }, 300); // Match the animation duration
+    }, 300);
   };
 
   const handleOpen = () => {
     setIsOpen(true);
-    setHasAutoOpened(true); // Mark as manually opened
+    // Removed: setHasAutoOpened(true); auto-open flag no longer needed
   };
 
   return (
