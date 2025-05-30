@@ -20,7 +20,7 @@ export default function Home() {
             <span className="font-semibold text-white">18-year-old</span> beginner web developer from{' '}
             <span className="font-semibold text-white">Sri Lanka</span>. I&#39;m passionate about learning new 
             technologies and improving my coding skills. I enjoy experimenting with projects, solving challenges, 
-            and slowly building up my knowledge in web development. Every day, I'm committed to{' '}
+            and slowly building up my knowledge in web development. Every day, I&apos;m committed to{' '}
             <span className="font-semibold text-[#F97A00]">growing</span> and becoming better at creating websites.
           </p>
         </div>

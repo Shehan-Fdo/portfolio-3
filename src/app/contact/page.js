@@ -276,11 +276,11 @@ export default function Contact() {
 
               {/* Services Card */}
               <div className="bg-[#222] border border-[#333] rounded-2xl p-6 sm:p-8">
-                <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let's Work Together</h2>
+                <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let&apos;s Work Together</h2>
                 <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
-                  I'm currently available for freelance projects and full-time opportunities. 
+                  I&apos;m currently available for freelance projects and full-time opportunities. 
                   Whether you need a web application, mobile app, or just want to discuss an idea, 
-                  I'd love to hear from you!
+                  I&apos;d love to hear from you!
                 </p>
                 {/* Service Tags - Responsive wrapping */}
                 <div className="flex flex-wrap gap-2">
