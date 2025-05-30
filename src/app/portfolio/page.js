@@ -1,12 +1,30 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Portfolio() {
   // State for managing selected category filter
   const [selectedCategory, setSelectedCategory] = useState("all");
   // State for managing selected project in modal
   const [selectedProject, setSelectedProject] = useState(null);
+  // State for managing window width
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  // Effect to handle window resize and set initial width
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Set initial width
+    setWindowWidth(window.innerWidth);
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // MODIFY THIS: Add or remove categories as needed
   const categories = [
@@ -98,6 +116,12 @@ export default function Portfolio() {
     setSelectedProject(null);
   };
 
+  // Determine how many technologies to show based on screen size
+  const getTechLimit = () => {
+    if (windowWidth === 0) return 3; // Default for SSR
+    return windowWidth < 640 ? 2 : 3;
+  };
+
   return (
     <div className="min-h-screen bg-[#222] text-white p-4 pt-15 sm:p-6 sm:pt-0">
       <div className="max-w-7xl mx-auto">
@@ -168,8 +192,8 @@ export default function Portfolio() {
                 
                 {/* Technology Tags */}
                 <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-                  {/* Show limited technologies on mobile, more on desktop */}
-                  {project.technologies.slice(0, window.innerWidth < 640 ? 2 : 3).map((tech, index) => (
+                  {/* Show limited technologies based on screen size */}
+                  {project.technologies.slice(0, getTechLimit()).map((tech, index) => (
                     <span
                       key={index}
                       className="px-2 sm:px-3 py-1 bg-[#333] text-xs rounded-full text-gray-300"
@@ -177,9 +201,9 @@ export default function Portfolio() {
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > (window.innerWidth < 640 ? 2 : 3) && (
+                  {project.technologies.length > getTechLimit() && (
                     <span className="px-2 sm:px-3 py-1 bg-[#333] text-xs rounded-full text-gray-300">
-                      +{project.technologies.length - (window.innerWidth < 640 ? 2 : 3)} more
+                      +{project.technologies.length - getTechLimit()} more
                     </span>
                   )}
                 </div>
