@@ -16,9 +16,9 @@ export default function Home() {
           {/* Main description paragraph */}
 
           <p className="text-[#afafaf] text-lg leading-relaxed max-w-3xl">
-            I'm <span className="font-semibold text-white">Kavindu Shehan</span>, an{' '}
+            I&#39;m <span className="font-semibold text-white">Kavindu Shehan</span>, an{' '}
             <span className="font-semibold text-white">18-year-old</span> beginner web developer from{' '}
-            <span className="font-semibold text-white">Sri Lanka</span>. I'm passionate about learning new 
+            <span className="font-semibold text-white">Sri Lanka</span>. I&#39;m passionate about learning new 
             technologies and improving my coding skills. I enjoy experimenting with projects, solving challenges, 
             and slowly building up my knowledge in web development. Every day, I'm committed to{' '}
             <span className="font-semibold text-[#F97A00]">growing</span> and becoming better at creating websites.
@@ -38,7 +38,7 @@ export default function Home() {
             {/* Left: Main description */}
             <div>
               <p className="text-[#afafaf] text-lg leading-relaxed">
-                I'm currently learning <span className="font-semibold text-white">Next.js</span> and{' '}
+                I&#39;m currently learning <span className="font-semibold text-white">Next.js</span> and{' '}
                 <span className="font-semibold text-white">React</span> to build modern, fast, and user-friendly 
                 websites. I focus on understanding the basics like components, routing, and styling, applying them 
                 to small projects.
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="mb-12">
           {/* Section title */}
           <h2 className="text-3xl md:text-4xl font-bold relative w-fit mb-8">
-            What I'm Good At
+            What I&#39;m Good At
             <span className="absolute right-0 -bottom-1.5 h-1 w-1/3 bg-[#F97A00] rounded-full"></span>
           </h2>
           
